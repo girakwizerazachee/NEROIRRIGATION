@@ -1,0 +1,13 @@
+asgiref==3.8.1
+bleach==6.1.0
+crispy-bootstrap4==2024.1
+Django==5.0.7
+django-crispy-forms==2.3
+django-humanize==0.1.2
+django-summernote==0.8.20.0
+humanize==4.10.0
+pillow==10.4.0
+six==1.16.0
+sqlparse==0.5.0
+tzdata==2024.1
+webencodings==0.5.1

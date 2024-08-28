@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  portfolio
+{% endblock %}
+{% block content %}
+<main id="main">
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Gallery</h2>
+        <p>innovative products of company</p>
+      </div>
+
+      
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      {% for photo in gallery %}
+        <div class="col-lg-4 col-md-6 portfolio-item">
+          <div class="portfolio-wrap">
+            <img src="{{ photo.image.url }}" class="img-fluid" alt="">
+            <div class="portfolio-links">
+              <a href="{{ photo.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{photo.name}}"><i class="bi bi-plus"></i></a>
+              
+            </div>
+            <div class="portfolio-info">
+              <h4>{{photo.name}}</h4>
+              <p>{{photo.name}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+</main>
+{% endblock %} 

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  services
+{% endblock %}
+{% block content %}
+<main id="main">
+  
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Services</h2>
+            <p>Check out the great services we offer</p>
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+          {% for post in posts %}
+          
+           
+
+              
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="{{ post.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ post.title }}</h5>
+                      <p class="card-text">{{ post.body }}</p>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+
+           
+          
+         
+      </div>
+          
+  
+      
+  
+        
+ 
+    </section><!-- End Services Section -->
+</main>
+{% endblock %} 

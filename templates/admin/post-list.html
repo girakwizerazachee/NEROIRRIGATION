@@ -1,0 +1,71 @@
+{% extends 'admin/_base.html' %} {% block display %}style="display: block;{%endblock %}
+ {% block list-state %}active{% endblock %} {% block content %}
+
+<div class="py-4 px-3 px-md-4">
+  <div class="card mb-3 mb-md-4">
+    <div class="card-body">
+      <!-- Breadcrumb -->
+      <nav class="d-none d-md-block" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Posts</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">All Posts</li>
+        </ol>
+      </nav>
+      <!-- End Breadcrumb -->
+
+      <div class="mb-3 mb-md-4 d-flex justify-content-between">
+        <div class="h3 mb-0">Posts</div>
+      </div>
+
+      <!-- Users -->
+      <div class="table-responsive">
+        <table class="table text-nowrap mb-0">
+          <thead>
+            <tr>
+              <th class="font-weight-semi-bold border-top-0 py-2">Name</th>
+              <th class="font-weight-semi-bold border-top-0 py-2">Photo</th>
+              
+
+              <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%if all_post%} {% for post in all_post%}
+            <tr>
+              <td class="align-middle py-3">
+                <div class="d-flex align-items-center">
+                  
+                  <a href="{% url 'GalleryDetail' pk=post.id %}" >{{post.name}}</a></div>
+              </td>
+              <td class="align-middle py-3"><div class="d-flex align-items-center"><img src="{{post.image.url}}" class="col-md-2 row"></div></td>
+
+           
+              <td class="py-3">
+                <div class="position-relative">
+                  <a class="link-dark d-inline-block" href="{% url 'editGallery' pk=post.id %}">
+                    <i class="gd-pencil icon-text"></i>
+                    
+                  </a>
+                  <a class="link-dark d-inline-block" href="{% url 'deleteGallery' pk=post.id %}">
+                    <i class="gd-trash icon-text"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            {%endfor%} {%else%}
+            <tr>
+              <td colspan="6" align="center">You no gallery yet</td>
+            </tr>
+            {%endif%}
+          </tbody>
+        </table>
+        
+      </div>
+      <!-- End Users -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}

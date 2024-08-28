@@ -1,0 +1,44 @@
+{% extends 'admin/_base.html' %}
+{% block display %}style="display: block;"{% endblock %}
+{% block new-state %}active{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+        <div class="py-4 px-3 px-md-4">
+            <div class="card mb-3 mb-md-4">
+
+                <div class="card-body">
+                    <!-- Breadcrumb -->
+                    <nav class="d-none d-md-block" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#">Gallery</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Service</li>
+                        </ol>
+                    </nav>
+                    <!-- End Breadcrumb -->
+
+                    <div class="mb-3 mb-md-4 d-flex justify-content-between">
+                        <div class="h3 mb-0">Edit Service</div>
+                    </div>
+
+
+                    <!-- Form -->
+                    <div class="card-body">
+                        <form method='post' enctype="multipart/form-data">
+                        
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                      
+                        
+                            <button type="submit" class="btn btn-primary float-right">Update</button>
+                        </form>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+
+
+        </div>
+
+{% endblock %}
